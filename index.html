@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thomas Broine — Open source contributions portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Thomas Broine</h1>
+      <p class="subtitle">Open source contributions portfolio</p>
+      <p class="school">Engineering student at Polytech Montpellier · Major: Software Development and Operational Exploitation</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="intro">
+        <h2>About</h2>
+        <p>
+          This portfolio lists my contributions to open source projects. Each card presents a project I discovered, the contribution I made, and what it brings to the community.
+        </p>
+      </section>
+
+      <section class="contributions">
+        <h2>Contributions</h2>
+
+        <article class="contribution-card">
+          <span class="badge">First open source contribution</span>
+          <h3>Default admin-cli client for every realm</h3>
+          <p class="meta">
+            Project: <a href="https://github.com/ferriskey/ferriskey" target="_blank" rel="noopener">FerrisKey</a> · Core layer · 2025
+          </p>
+
+          <p class="project-desc">
+            <strong>The project:</strong> FerrisKey is an open source Identity &amp; Access Management (IAM) system, written in Rust with a hexagonal architecture. It offers a lightweight, performant alternative to proprietary IAMs: multi-tenant realms, OIDC/OAuth2 flows, MFA (TOTP), audit, webhooks, and Kubernetes deployment via Helm. The project emphasizes clear layer separation (core, api, front, operator) and focused, reviewable pull requests.
+          </p>
+
+          <div class="subsection">
+            <p class="subsection-title">My contribution</p>
+            <p class="what-desc">
+              On first startup, FerrisKey creates the <em>master</em> realm via an initialization routine that did not create the <code>admin-cli</code> client. This client is used for command-line administration (public client with direct access by credentials). It was already created automatically for all <em>new</em> realms, but not for the master realm.
+            </p>
+            <p class="what-desc">
+              I added creation of the <code>admin-cli</code> client in the <code>initialize_application()</code> method of the <code>ferriskey-core</code> crate, with the same configuration as for other realms: <code>public: true</code>, <code>direct access grant: true</code>, and idempotent behavior (create only if the client does not already exist).
+            </p>
+          </div>
+
+          <div class="subsection">
+            <p class="subsection-title">Impact on the project</p>
+            <p class="impact">
+              Now <strong>every</strong> realm — including the master realm — has a default <code>admin-cli</code> client. Administrators can use the same client for scripts and CLI tools across all realms, without extra manual setup. Behavior is consistent between initial bootstrap and creation of new realms.
+            </p>
+            <ul>
+              <li>Single file changed (<code>core/src/domain/common/services.rs</code>), single responsibility</li>
+              <li>Follows project conventions (idempotent pattern, logging, error handling)</li>
+              <li>Tests and clippy passing, PR ready for review</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Template to duplicate for future contributions:
+        <article class="contribution-card">
+          <span class="badge">Contribution #2</span>
+          <h3>Contribution title</h3>
+          <p class="meta">Project: <a href="#">Project name</a> · 20XX</p>
+          <p class="project-desc"><strong>The project:</strong> ...</p>
+          <div class="subsection">
+            <p class="subsection-title">My contribution</p>
+            <p class="what-desc">...</p>
+          </div>
+          <div class="subsection">
+            <p class="subsection-title">Impact on the project</p>
+            <p class="impact">...</p>
+          </div>
+        </article>
+        -->
+      </section>
+    </div>
+  </main>
+</body>
+</html>

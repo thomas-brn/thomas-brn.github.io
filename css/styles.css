@@ -1,0 +1,199 @@
+/* Thomas Broine — Open source contributions portfolio */
+/* Minimal, readable, easy to extend */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --border: #e5e7eb;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+header {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0 0 0.25rem;
+  color: var(--text);
+}
+
+header .subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+header .school {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Intro */
+.intro {
+  padding: 2.5rem 0;
+}
+
+.intro h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.intro p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Section contributions */
+.contributions {
+  padding-bottom: 3rem;
+}
+
+.contributions h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+  color: var(--text);
+}
+
+.contribution-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.contribution-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #d1d5db;
+}
+
+.contribution-card .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.contribution-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.contribution-card .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.contribution-card .meta a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contribution-card .meta a:hover {
+  text-decoration: underline;
+}
+
+.contribution-card .project-desc,
+.contribution-card .what-desc,
+.contribution-card .impact {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+  line-height: 1.65;
+}
+
+.contribution-card .subsection {
+  margin-top: 1.25rem;
+}
+
+.contribution-card .subsection-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+
+.contribution-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
